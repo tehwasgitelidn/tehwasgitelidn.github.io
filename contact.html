@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="nomor" id="nomor" type="nomor" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan Nomor Telepon Anda'" placeholder="Masukan Nomor Telepon Anda">
+                                        <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukan Email Anda'" placeholder="Masukan Email Anda">
                                     </div>
                                 </div>
                             </div>
@@ -291,5 +291,31 @@
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
     
+     <script>
+    /* To Disable Inspect Element */
+     document.oncontextmenu = () => {
+        return false
+      }
+
+      document.onkeydown = e => {
+        //prevent F12
+        if(e.key == "F12") {
+            return false
+        } 
+        if(e.ctrlKey && e.key == "u") {
+            return false
+        }    
+        if(e.ctrlKey && e.key == "c") {
+            return false
+        }  
+        if(e.ctrlKey && e.key == "s") {
+            return false
+        }  
+        if(e.ctrlKey && e.key == "v") {
+            return false
+        }     
+      }
+</script>
+
 </body>
 </html>
