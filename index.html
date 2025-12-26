@@ -205,7 +205,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-headset"></i>
             <div class="stats-item">
-              <span id="hoursSupport"></span>
+              <span id="hoursSupport" class="purecounter"></span>
               <p>Jam Support</p>
             </div>
           </div>
@@ -251,17 +251,23 @@
     </script>
     <script>
         function updateHoursSupport() {
-          const startDate = new Date("2023-08-01T00:00:00");
-          const now = new Date();
-          const diffMs = now - startDate;
-          const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-        
-          document.getElementById("hoursSupport").innerText = diffHours;
-        }
-        
-        updateHoursSupport();
-        setInterval(updateHoursSupport, 60 * 60 * 1000);
-
+        const startDate = new Date("2023-08-01T00:00:00");
+        const now = new Date();
+        const diffMs = now - startDate;
+        const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      
+        const el = document.getElementById("hoursSupport");
+      
+        el.innerHTML = "0"; // reset isi
+        el.setAttribute("data-purecounter-start", "0");
+        el.setAttribute("data-purecounter-end", diffHours);
+        el.setAttribute("data-purecounter-duration", "1");
+      
+        new PureCounter();
+      }
+      
+      updateHoursSupport();
+      setInterval(updateHoursSupport, 60 * 60 * 1000);
           </script>
     <section id="clients" class="clients section light-background">
 
