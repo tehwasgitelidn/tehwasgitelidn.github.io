@@ -191,7 +191,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-emoji-smile"></i>
             <div class="stats-item">
-              <span id="happyCustomer" class="purecounter"></span>
+             <span id="happyCustomer"></span>
               <p>Pelanggan Senang</p>
             </div>
           </div>
@@ -220,25 +220,33 @@
       </div>
     </section>
     <script>
-          function updateHappyCustomer() {
-        const startCount = 59625;
-        const dailyIncrease = 5;
-        const startDate = new Date("2023-08-01"); 
-        const today = new Date();
-        const diffTime = today - startDate;
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        const total = startCount + (diffDays * dailyIncrease);
-        const el = document.getElementById("happyCustomer");
-      
-        el.innerHTML = "0"; 
-        el.setAttribute("data-purecounter-start", "0");
-        el.setAttribute("data-purecounter-end", total);
-        el.setAttribute("data-purecounter-duration", "1");
-      
-        new PureCounter();
-      }
-      
-      updateHappyCustomer();
+         function updateHappyCustomer() {
+          const startCount = 59625;
+          const increasePerStep = 5;
+          const stepHours = 2;
+        
+          const startDate = new Date("2023-08-01T00:00:00");
+          const now = new Date();
+        
+          const diffSteps = Math.floor(
+            (now - startDate) / (1000 * 60 * 60 * stepHours)
+          );
+        
+          const total = startCount + (diffSteps * increasePerStep);
+        
+          const el = document.getElementById("happyCustomer");
+        
+          el.innerHTML = "0";
+          el.setAttribute("data-purecounter-start", "0");
+          el.setAttribute("data-purecounter-end", total);
+          el.setAttribute("data-purecounter-duration", "1");
+        
+          new PureCounter();
+        }
+        
+        updateHappyCustomer();
+        setInterval(updateHappyCustomer, 2 * 60 * 60 * 1000);
+
 
     </script>
     <script>
