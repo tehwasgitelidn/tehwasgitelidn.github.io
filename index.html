@@ -220,20 +220,18 @@
       </div>
     </section>
     <script>
-            function updateHoursSupport() {
-              const startDate = new Date("2023-08-01T00:00:00"); 
-              const now = new Date();
-              const diffMs = now - startDate;
-              const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+        function updateHoursSupport() {
+          const startDate = new Date("2023-08-01T00:00:00");
+          const now = new Date();
+          const diffMs = now - startDate;
+          const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+        
+          document.getElementById("hoursSupport").innerText = diffHours;
+        }
+        
+        updateHoursSupport();
+        setInterval(updateHoursSupport, 60 * 60 * 1000);
 
-              const el = document.getElementById("hoursSupport");
-              el.setAttribute("data-purecounter-end", diffHours);
-              if (window.PureCounter) {
-                new PureCounter();
-              }
-            }
-            updateHoursSupport();
-            setInterval(updateHoursSupport, 60 * 60 * 1000);
           </script>
     <section id="clients" class="clients section light-background">
 
